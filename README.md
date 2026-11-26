@@ -1,4 +1,4 @@
-# Sistem Peminjaman Buku
+# Sistem Peminjaman 
 
 Sistem peminjaman buku berbasis web untuk komunitas baca. Pengurus dapat mencatat peminjaman,
 melihat daftar, mengubah data (misalnya menandai buku sudah dikembalikan), dan menghapus catatan.
