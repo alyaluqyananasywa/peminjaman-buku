@@ -62,3 +62,12 @@ Aplikasi yang sama dibungkus menjadi image Docker (`Dockerfile`), dibuild, dan d
 di EC2 dengan koneksi ke RDS yang sama. Konfigurasi database tetap dikirim lewat environment variable, tidak
 ditulis di image. Push ke ECR belum berhasil karena akses ditolak di lingkungan sandbox, rinciannya ada di
 `DEPLOYMENT.md`.
+
+## Dokumen
+- [Architecture diagram](docs/architecture_peminjaman_buku_drawio.pdf): Track A dan Track B
+- [Design brief](docs/DESIGN_BRIEF.pdf): use case, track, entitas, endpoint
+
+## Bukti AWS
+Screenshot ada di folder [`evidence/`](evidence/): VPC dan security group, instance EC2 berjalan,
+RDS berstatus Available, koneksi EC2 ke RDS, health check aplikasi, log aplikasi, container Track B,
+dan error ECR (akses ditolak sandbox).
