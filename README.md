@@ -8,7 +8,12 @@ Dikerjakan untuk tugas Cloud Computing (AWS Learner Lab), Track A: EC2 + RDS MyS
 Pengurus mengakses aplikasi Flask yang berjalan di EC2 lewat HTTP. Flask menjalankan query ke RDS MySQL
 yang berada di VPC yang sama, lalu hasilnya dikembalikan sebagai JSON. Security group membatasi akses:
 EC2 menerima HTTP dari internet, sedangkan RDS hanya menerima port 3306 dari security group EC2.
-Gambar lengkapnya ada di architecture diagram yang dikumpulkan terpisah.
+### Track A: EC2 + RDS MySQL
+![Arsitektur Track A](documents/arsitektur-track-a.png)
+
+### Track B: EC2 + Docker + ECR (sebagian)
+![Arsitektur Track B](documents/arsitektur-track-b.png)
+
 
 ## Tech stack
 - **Flask (Python):** setiap kombinasi method dan path dipetakan ke satu fungsi, jadi keempat endpoint
@@ -43,9 +48,11 @@ Entitas `Loan` disimpan di tabel `loans`:
 - `app.py`: aplikasi Flask
 - `schema.sql`: pembuatan database dan tabel
 - `requirements.txt`: dependensi Python
-- `.env.example`: contoh konfigurasi (isi sendiri menjadi `.env`, jangan di-commit)
+- `.env.example`: contoh konfigurasi 
 - `DEPLOYMENT.md`: langkah deployment ke AWS sesuai yang dikerjakan
 - `Dockerfile`, `.dockerignore`: perluasan ke container (Track B, sebagian)
+- `documents/`: architecture diagram (PDF dan PNG) serta design brief
+- `evidences/`: screenshot bukti AWS (Track A dan Track B)
 
 ## Menjalankan
 ```bash
@@ -64,10 +71,11 @@ ditulis di image. Push ke ECR belum berhasil karena akses ditolak di lingkungan 
 `DEPLOYMENT.md`.
 
 ## Dokumen
-- [Architecture diagram](docs/architecture_peminjaman_buku_drawio.pdf): Track A dan Track B
-- [Design brief](docs/DESIGN_BRIEF.pdf): use case, track, entitas, endpoint
+- [Architecture diagram](documents/architecture_peminjaman_buku_drawio.pdf): Track A dan Track B
+- [Design brief](documents/DESIGN_BRIEF.pdf): use case, track, entitas, endpoint
 
 ## Bukti AWS
-Screenshot ada di folder [`evidence/`](evidence/): VPC dan security group, instance EC2 berjalan,
-RDS berstatus Available, koneksi EC2 ke RDS, health check aplikasi, log aplikasi, container Track B,
-dan error ECR (akses ditolak sandbox).
+Screenshot ada di folder [`evidences/`](evidences/), dibagi per track:
+[Track A](evidences/track-a/) dan [Track B](evidences/track-b/).
+Isinya mencakup VPC dan security group, instance EC2 berjalan, RDS berstatus Available, koneksi
+EC2 ke RDS, health check aplikasi, log aplikasi, container Track B, dan error ECR (akses ditolak sandbox).
